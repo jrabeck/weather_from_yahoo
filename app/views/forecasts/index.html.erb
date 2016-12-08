@@ -1,0 +1,18 @@
+<h1> <%= @forecasts["temp"] %> </h1>
+
+<%= form_tag "/index", method: :get do %>
+<%= label_tag :city %>
+<%= text_field_tag :city %>
+<%= label_tag :state %>
+<%= text_field_tag :state %>
+<%= submit_tag "Submit" %>
+<% end %>
+
+<% @five_day_forecast[0..4].each do |forecast| %>
+	<h2> Day: <%= forecast["day"] %> </h2>
+	<h2> High: <%= forecast["high"] %> </h2>
+	<h2> Low: <%= forecast["low"] %> </h2>
+	<h2> Description: <%= forecast["text"] %> </h2>
+	<% end %>
+
+
